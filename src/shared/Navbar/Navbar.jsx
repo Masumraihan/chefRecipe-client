@@ -42,7 +42,7 @@ const Navbar = () => {
               <img src='https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80' />
             </div>
           </label>
-          <a className='btn'>Get started</a>
+          <a className='btn btn-primary'>Login</a>
         </div>
       </div>
     </>
