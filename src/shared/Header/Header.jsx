@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../shared/Navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import axios from "axios";
 
 const Header = () => {
@@ -23,11 +23,12 @@ const Header = () => {
       <Navbar />
       <Swiper
         navigation={true}
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
         className='mySwiper text-center'
+        loop={true}
       >
         {bannerData.map((info) => (
-          <SwiperSlide key={info?.id} className=''>
+          <SwiperSlide key={info?.id}>
             <div
               className='hero min-h-[550px]'
               style={{
