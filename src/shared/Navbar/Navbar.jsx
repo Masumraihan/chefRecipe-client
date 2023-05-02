@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import ActiveLink from "../../components/ActiveLink/ActiveLink";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <>
       <div className='navbar bg-base-100'>
@@ -49,12 +52,17 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='navbar-end'>
-          <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
-            <div className='w-10 rounded-full'>
-              <img src='https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80' />
-            </div>
-          </label>
-          <Link to='/login' className='btn btn-primary'>Login</Link>
+          {user ? (
+            <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
+              <div className='w-12 rounded-full'>
+                <img src='https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80' />
+              </div>
+            </label>
+          ) : (
+            <Link to='/login' className='btn btn-primary'>
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </>

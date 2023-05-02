@@ -4,7 +4,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
   return (
-    <div className='hero min-h-screen bg-base-200'>
+    <div className='hero min-h-screen bg-base-200 py-12'>
       <div className='md:w-2/4 lg:w-1/3'>
         <div className='card flex-shrink-0 w-full border shadow-2xl bg-base-100'>
           <form className='card-body w-full border'>
