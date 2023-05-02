@@ -4,6 +4,7 @@ import Root from "../layout/Root";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Blogs from "../components/Blogs/Blogs";
 import Home from "../components/Home/Home";
+import LoginLayout from "../layout/LoginLayout";
 
 
   const router = createBrowserRouter([
@@ -22,6 +23,10 @@ import Home from "../components/Home/Home";
         }
       ]
     },
+    {
+      path:"/login",
+      element:<LoginLayout/>
+    }
   ]);
 
 export default router;
