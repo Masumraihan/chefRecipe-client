@@ -1,8 +1,9 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SingleChef = ({ chefInfo }) => {
-  const { image, chef_name, years_of_experience, number_of_recipes, likes } =
+  const { image, chef_name, years_of_experience, number_of_recipes, likes,id } =
     chefInfo;
   return (
     <>
@@ -20,7 +21,7 @@ const SingleChef = ({ chefInfo }) => {
             </div>
           </div>
           <div className='card-actions justify-end justify-self-end'>
-            <button className='btn btn-primary'>View Recipes</button>
+            <Link to={`recipes/${id}`} className='btn btn-primary'>View Recipes</Link>
           </div>
         </div>
       </div>

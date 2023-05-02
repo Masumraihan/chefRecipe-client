@@ -26,6 +26,7 @@ const Feedback = () => {
         slidesPerView={1}
         spaceBetween={10}
         freeMode={true}
+        loop={true}
         pagination={{
           clickable: true,
         }}
