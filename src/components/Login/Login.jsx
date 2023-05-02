@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   return (
     <div className='hero min-h-screen bg-base-200'>
-      <div className='md:w-2/4 lg:w-1/4'>
+      <div className='md:w-2/4 lg:w-1/3'>
         <div className='card flex-shrink-0 w-full border shadow-2xl bg-base-100'>
           <form className='card-body w-full border'>
             <h1 className='text-3xl text-center font-semibold '>
@@ -38,8 +39,10 @@ const Login = () => {
             <div className='form-control mt-6'>
               <button className='btn btn-primary'>Login</button>
             </div>
+            <SocialLogin/>
             <p>
-              Already have an account? <Link className="btn btn-link">SignUp</Link>
+              don&apos;t have an account?{" "}
+              <Link to='login/signup' className='btn btn-link'>SignUp</Link>
             </p>
           </form>
         </div>
