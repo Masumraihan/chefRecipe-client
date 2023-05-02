@@ -11,7 +11,7 @@ const SignUp = () => {
   const [passwordError, setPasswordError] = useState("");
   const [error,setError] = useState("")
 
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser} = useContext(AuthContext);
 
   const handlePassword = (e) => {
     const passwordInput = e.target.value;
@@ -28,6 +28,7 @@ const SignUp = () => {
     }
     setPassword(passwordInput);
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
