@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SingleChef from "./SingleChef";
+import Loader from "../../Loader/Loader";
 
 const Chefs = () => {
   const [chefsData, setChefsData] = useState([]);
   const [allChefs, setAllChefs] = useState([]);
-
 
 
   const handleShowAllChefs = () => {
@@ -22,6 +22,10 @@ const Chefs = () => {
     };
     loadChefsData();
   }, []);
+
+  if (chefsData.length === 0) {
+    return <Loader/>
+  }
 
   return (
     <div className='py-14'>
