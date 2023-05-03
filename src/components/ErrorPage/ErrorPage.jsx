@@ -12,7 +12,7 @@ const ErrorPage = () => {
         src='https://assets10.lottiefiles.com/packages/lf20_bhw1ul4g.json'
         style={{ height: "300px", width: "300px" }}
       ></Player>
-        <p className="text-center text-red-400 text-xl">{error?.message}</p>
+        <p className="text-center text-red-400 text-xl">{error?.message || status}</p>
     </div>
   );
 };

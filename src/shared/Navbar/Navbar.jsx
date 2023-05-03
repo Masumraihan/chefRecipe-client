@@ -65,12 +65,11 @@ const Navbar = () => {
           {user?.photoURL && (
             <label
               tabIndex={0}
-              className='btn btn-ghost btn-circle avatar mr-3'
+              className='btn btn-ghost btn-circle avatar mr-3 tooltip tooltip-bottom z-20'
+              data-tip={user.displayName && user.displayName}
             >
               <div className='w-12 rounded-full'>
-                <div className="tooltip" data-tip="hello">
                 <img src={user?.photoURL} />
-                </div>
               </div>
             </label>
           )}
