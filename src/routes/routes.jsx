@@ -10,48 +10,50 @@ import SignUp from "../components/SignUp/SignUp";
 import RecipeLayout from "../layout/RecipeLayout";
 import Recipes from "../components/Recipes/Recipes";
 
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root />,
-      errorElement: <ErrorPage />,
-      children:[
-        {
-            path:"/",
-            element:<Home/>
-        },
-        {
-            path:"/blogs",
-            element:<Blogs/>
-        }
-      ]
-    },
-    {
-      path:"login",
-      element:<LoginLayout/>,
-      children:[
-        {
-          path:'/login',
-          element:<Login/>
-        },
-        {
-          path:"login/signup",
-          element:<SignUp/>
-        }
-      ]
-    },
-    {
-      path:"recipes",
-      element:<RecipeLayout/>,
-      children:[
-        {
-          path:":id",
-          element:<Recipes/>,
-          loader:({params}) => fetch(`https://chef-recipe-assignment-server-masumraihan.vercel.app/recipes/${params.id}`)
-        }
-      ]
-    }
-  ]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <LoginLayout />,
+    children: [
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "login/signup",
+        element: <SignUp />,
+      },
+    ],
+  },
+  {
+    path: "recipes",
+    element: <RecipeLayout />,
+    children: [
+      {
+        path: ":id",
+        element: <Recipes />,
+        loader: ({ params }) =>
+          fetch(
+            `https://chef-recipe-assignment-server-masumraihan.vercel.app/recipes/${params.id}`
+          ),
+      },
+    ],
+  },
+]);
 
 export default router;
