@@ -18,7 +18,7 @@ const SingleChef = ({ chefInfo }) => {
           <img src={image} alt={chef_name} className='rounded-md w-full h-72' />
         </figure>
         <div className='card-body justify-between'>
-          <div>
+          <div className="flex flex-col gap-2">
             <h2 className='card-title'>{chef_name}</h2>
             <p>Experience: {years_of_experience} year</p>
             <p>Recipe: {number_of_recipes} items </p>

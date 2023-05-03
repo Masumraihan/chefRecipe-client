@@ -68,10 +68,9 @@ const Navbar = () => {
               className='btn btn-ghost btn-circle avatar mr-3'
             >
               <div className='w-12 rounded-full'>
-                <img
-                  src={user?.photoURL}
-                  title={user?.displayName && user.displayName}
-                />
+                <div className="tooltip" data-tip="hello">
+                <img src={user?.photoURL} />
+                </div>
               </div>
             </label>
           )}

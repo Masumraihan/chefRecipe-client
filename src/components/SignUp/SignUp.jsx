@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProviders";
 
@@ -11,7 +11,8 @@ const SignUp = () => {
   const [passwordError, setPasswordError] = useState("");
   const [error, setError] = useState("");
 
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handlePassword = (e) => {
     const passwordInput = e.target.value;
@@ -38,7 +39,9 @@ const SignUp = () => {
         console.log(createdUser);
         updateUser(name, photoUrl)
           .then((result) => {
-            //console.log(result?.user);
+            console.log(result?.user);
+            logOut();
+            navigate("/login");
           })
           .catch((err) => {
             setError(err);
@@ -114,22 +117,22 @@ const SignUp = () => {
                 </p>
               )}
             </div>
+            <>
+              <div className='form-control mt-6'>
+                <button className='btn btn-primary' type='submit'>
+                  SignUp
+                </button>
+              </div>
+              <p className='text-red-600'>{error ? error.message : ""}</p>
+              <SocialLogin />
+            </>
           </form>
-          <div className="card-body">
-            <div className='form-control mt-6'>
-              <button className='btn btn-primary' type='submit'>
-                SignUp
-              </button>
-            </div>
-            <p className='text-red-600'>{error ? error.message : ""}</p>
-            <SocialLogin />
-          </div>
-            <p className="ml-9">
-              Already have an account?{" "}
-              <Link to='/login' className='btn btn-link'>
-                login
-              </Link>
-            </p>
+          <p className='ml-9'>
+            Already have an account?{" "}
+            <Link to='/login' className='btn btn-link'>
+              login
+            </Link>
+          </p>
         </div>
       </div>
     </div>

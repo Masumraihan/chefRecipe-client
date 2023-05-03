@@ -4,9 +4,11 @@ import { toast } from "react-hot-toast";
 
 const SingleRecipe = ({ recipe }) => {
   const [isFold, setIsFold] = useState(true);
+  const [isDisable,setIsDisable] = useState(false)
 
   const handleFavorite = () => {
     toast.success("Item Added Successfully")
+    setIsDisable(true)
   }
 
   const { recipe_name, cooking_method, ingredients, rating } = recipe;
@@ -36,7 +38,7 @@ const SingleRecipe = ({ recipe }) => {
           </ul>
         </div>
         <div className='card-actions absolute bottom-5 right-5'>
-          <button onClick={handleFavorite} className='btn btn-primary'>Favorite</button>
+          <button onClick={handleFavorite} disabled={isDisable} className='btn btn-primary'>Favorite</button>
         </div>
       </div>
     </div>

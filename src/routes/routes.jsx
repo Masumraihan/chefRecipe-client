@@ -9,6 +9,7 @@ import Login from "../components/Login/Login";
 import SignUp from "../components/SignUp/SignUp";
 import RecipeLayout from "../layout/RecipeLayout";
 import Recipes from "../components/Recipes/Recipes";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
   },
   {
     path: "recipes",
-    element: <RecipeLayout />,
+    element: (
+      <PrivateRoute>
+        <RecipeLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: ":id",
