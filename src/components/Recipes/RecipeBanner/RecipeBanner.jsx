@@ -21,15 +21,19 @@ const RecipeBanner = ({ chef }) => {
       >
         <div className='hero-overlay bg-opacity-60'></div>
         <div className='hero-content text-center text-neutral-content'>
-          <div className='max-w-md'>
-            <h1 className='mb-5 text-5xl font-bold'>{chef_name}</h1>
-            <p className='mb-5 '>
-              {short_bio}
-            </p>
-            <div className="text-xl ">
-                <p>{years_of_experience} years of Experience</p>
-                <p>{number_of_recipes} Recipes</p>
-                <p className="flex justify-center items-center gap-2"><FaHeart className="text-red-600"/> <span>{likes} people likes</span></p>
+          <div className=' flex flex-col w-full items-center gap-5 lg:flex-row '>
+            <div className='grid w-1/2 flex-grow card rounded-box place-items-center'>
+              <h1 className='mb-5 text-5xl font-bold'>{chef_name}</h1>
+              <p className='mb-5 '>{short_bio}</p>
+            </div>
+            <div className='divider lg:divider-horizontal'>OR</div>
+            <div className='text-2xl bg-base-300 bg-opacity-40 text-black px-5 py-10 font-semibold w-1/2 md:text-start flex-grow card rounded-box '>
+              <p>{years_of_experience} years of Experience</p>
+              <p>{number_of_recipes} Recipes</p>
+              <p className='flex items-center gap-2'>
+                <FaHeart className='text-red-600' />{" "}
+                <span>{likes} people likes</span>
+              </p>
             </div>
           </div>
         </div>

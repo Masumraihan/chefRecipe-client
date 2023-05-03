@@ -19,10 +19,10 @@ const Recipes = () => {
     loadChefData();
   }, []);
   return (
-    <div className="">
+    <>
       <RecipeBanner chef={chef} />
       <RecipeInfo recipeData={recipeData} />
-    </div>
+    </>
   );
 };
 
