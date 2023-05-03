@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProviders";
 
@@ -9,16 +9,21 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
+  const from = location?.state?.from?.pathname || "/";
+  console.log(from);
 
   const handleLogin = (e) => {
     e.preventDefault();
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        navigate(from, {replace:true});
       })
       .catch((err) => {
-        setError(err)
+        setError(err);
       });
   };
 
@@ -38,7 +43,7 @@ const Login = () => {
                 type='email'
                 placeholder='email'
                 className='input input-bordered'
-                name="email"
+                name='email'
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -51,7 +56,7 @@ const Login = () => {
                 type='password'
                 placeholder='password'
                 className='input input-bordered'
-                name="password"
+                name='password'
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -64,8 +69,8 @@ const Login = () => {
             <div className='form-control mt-6'>
               <button className='btn btn-primary'>Login</button>
             </div>
-            <p className="text-red-600">{error ? error.message : ""}</p>
-            <SocialLogin />
+            <p className='text-red-600'>{error ? error.message : ""}</p>
+            <SocialLogin from={from} />
             <p>
               don&apos;t have an account?{" "}
               <Link to='login/signup' className='btn btn-link'>

@@ -7,7 +7,7 @@ const ActiveLink = ({children,to}) => {
       <NavLink
         to={to}
         className={({ isActive }) =>
-          isActive ? "text-primary" : ""
+          isActive ? "text-primary tracking-wide" : ""
         }
       >
         {children}

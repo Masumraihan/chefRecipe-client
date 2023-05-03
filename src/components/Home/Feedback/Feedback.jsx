@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
+import LazyLoad from "react-lazy-load";
 
 const Feedback = () => {
   const [feedback, setFeedback] = useState([]);
@@ -20,8 +21,10 @@ const Feedback = () => {
   }, []);
 
   return (
-    <div className="mb-14">
-      <h1 className="text-4xl font-bold text-center pb-10 ">Our Customer Feedback</h1>
+    <div className='mb-14'>
+      <h1 className='text-4xl font-bold text-center pb-10 '>
+        Our Customer Feedback
+      </h1>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -33,30 +36,32 @@ const Feedback = () => {
         modules={[FreeMode, Pagination]}
         className='mySwiper'
         breakpoints={{
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 40,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 50,
-            },
-          }}
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+        }}
       >
         <div>
           {feedback.map((review) => (
             <SwiperSlide key={review.id}>
               <div className='card w-full h-96 bg-base-100 shadow-xl'>
                 <figure className='px-10 pt-10'>
-                  <img
-                    src={review?.image}
-                    alt={review?.name}
-                    className='rounded-xl'
-                  />
+                  <LazyLoad>
+                    <img
+                      src={review?.image}
+                      alt={review?.name}
+                      className='rounded-xl'
+                    />
+                  </LazyLoad>
                 </figure>
                 <div className='card-body items-center text-center'>
                   <h2 className='card-title'>{review?.name}</h2>

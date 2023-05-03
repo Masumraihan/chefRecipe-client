@@ -2,14 +2,17 @@ import React, { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
 
-const SocialLogin = () => {
+const SocialLogin = ({from}) => {
   const { googleSignIn, githubSignIn } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
+        navigate(from,{replace:true})
       })
       .catch((err) => {
         console.log(err);
@@ -20,6 +23,7 @@ const SocialLogin = () => {
     githubSignIn()
       .then((result) => {
         const loggedUser = result.user;
+        navigate(from,{replace:true})
       })
       .catch((err) => {
         console.log(err);
