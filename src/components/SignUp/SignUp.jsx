@@ -9,9 +9,9 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [error,setError] = useState("")
+  const [error, setError] = useState("");
 
-  const { createUser, updateUser} = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
 
   const handlePassword = (e) => {
     const passwordInput = e.target.value;
@@ -29,9 +29,9 @@ const SignUp = () => {
     setPassword(passwordInput);
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
@@ -53,7 +53,7 @@ const SignUp = () => {
     <div className='hero min-h-screen bg-base-200 py-12'>
       <div className='md:w-2/4 lg:w-1/3'>
         <div className='card flex-shrink-0 w-full border shadow-2xl bg-base-100'>
-          <form onSubmit={handleSubmit} className='card-body w-full border'>
+          <form onSubmit={handleSubmit} className='card-body w-full'>
             <h1 className='text-3xl text-center font-semibold '>
               Create a new Account
             </h1>
@@ -114,20 +114,22 @@ const SignUp = () => {
                 </p>
               )}
             </div>
+          </form>
+          <div className="card-body">
             <div className='form-control mt-6'>
               <button className='btn btn-primary' type='submit'>
                 SignUp
               </button>
             </div>
-            <p>{error?error.message:""}</p>
+            <p className='text-red-600'>{error ? error.message : ""}</p>
             <SocialLogin />
-            <p>
+          </div>
+            <p className="ml-9">
               Already have an account?{" "}
               <Link to='/login' className='btn btn-link'>
                 login
               </Link>
             </p>
-          </form>
         </div>
       </div>
     </div>

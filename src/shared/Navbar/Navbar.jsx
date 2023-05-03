@@ -1,11 +1,21 @@
 import React, { useContext } from "react";
 import ActiveLink from "../../components/ActiveLink/ActiveLink";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-
+  const { user, logOut } = useContext(AuthContext);
+  //console.log(user?.photoURL);
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
   return (
     <>
       <div className='navbar bg-base-100'>
@@ -52,12 +62,23 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='navbar-end'>
-          {user ? (
-            <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
+          {user?.photoURL && (
+            <label
+              tabIndex={0}
+              className='btn btn-ghost btn-circle avatar mr-3'
+            >
               <div className='w-12 rounded-full'>
-                <img src='https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80' />
+                <img
+                  src={user?.photoURL}
+                  title={user?.displayName && user.displayName}
+                />
               </div>
             </label>
+          )}
+          {user ? (
+            <Link onClick={handleLogOut} className='btn btn-primary'>
+              Logout
+            </Link>
           ) : (
             <Link to='/login' className='btn btn-primary'>
               Login

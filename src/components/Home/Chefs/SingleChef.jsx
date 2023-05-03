@@ -3,8 +3,14 @@ import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chefInfo }) => {
-  const { image, chef_name, years_of_experience, number_of_recipes, likes,id } =
-    chefInfo;
+  const {
+    image,
+    chef_name,
+    years_of_experience,
+    number_of_recipes,
+    likes,
+    id,
+  } = chefInfo;
   return (
     <>
       <div className='card lg:card-side bg-base-100 shadow-xl mx-5 md:mx-0'>
@@ -16,12 +22,15 @@ const SingleChef = ({ chefInfo }) => {
             <h2 className='card-title'>{chef_name}</h2>
             <p>Experience: {years_of_experience} year</p>
             <p>Recipe: {number_of_recipes} items </p>
-            <div className="flex items-center gap-1">
-            <span>likes: {likes}</span> <FaHeart className="text-red-600" />
-            </div>
           </div>
-          <div className='card-actions justify-end justify-self-end'>
-            <Link to={`recipes/${id}`} className='btn btn-primary'>View Recipes</Link>
+          <div className='card-actions justify-between items-center'>
+            <div className='flex items-center gap-1 text-xl'>
+              <FaHeart className='text-red-600' />
+              <span> {likes}</span>
+            </div>
+            <Link to={`recipes/${id}`} className='btn btn-primary'>
+              View Recipes
+            </Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaLongArrowAltRight } from "react-icons/fa";
 
 const RecipeBanner = ({ chef }) => {
   const {
@@ -14,7 +14,7 @@ const RecipeBanner = ({ chef }) => {
   return (
     <>
       <div
-        className='hero min-h-[70vh]'
+        className='hero min-h-[75vh]'
         style={{
           backgroundImage: `url(${image})`,
         }}
@@ -28,10 +28,18 @@ const RecipeBanner = ({ chef }) => {
             </div>
             <div className='divider lg:divider-horizontal'>OR</div>
             <div className='text-2xl bg-base-300 bg-opacity-40 text-black px-5 py-10 font-semibold w-1/2 md:text-start flex-grow card rounded-box '>
-              <p>{years_of_experience} years of Experience</p>
-              <p>{number_of_recipes} Recipes</p>
               <p className='flex items-center gap-2'>
-                <FaHeart className='text-red-600' />{" "}
+                {" "}
+                <FaLongArrowAltRight className='text-primary' />{" "}
+                {years_of_experience} years of Experience
+              </p>
+              <p className='flex items-center gap-2'>
+                {" "}
+                <FaLongArrowAltRight className='text-primary' />{" "}
+                {number_of_recipes} Recipes
+              </p>
+              <p className='flex items-center gap-2'>
+                <FaLongArrowAltRight className='text-primary' />
                 <span>{likes} people likes</span>
               </p>
             </div>
