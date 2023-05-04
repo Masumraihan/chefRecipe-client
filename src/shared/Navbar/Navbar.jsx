@@ -40,26 +40,20 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
+              className='dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box font-semibold pl-3 w-52'
             >
-              <li>
-                <ActiveLink to='/'>Home</ActiveLink>
-              </li>
-              <li>
-                <ActiveLink to='/blogs'>Blogs</ActiveLink>
-              </li>
+              <ActiveLink to='/'>Home</ActiveLink>
+
+              <ActiveLink to='/blogs'>Blogs</ActiveLink>
             </ul>
           </div>
           <a className='btn btn-ghost normal-case text-xl'>Food Network</a>
         </div>
         <div className='navbar-center hidden lg:flex'>
-          <ul className='menu menu-horizontal px-1'>
-            <li>
-              <ActiveLink to='/'>Home</ActiveLink>
-            </li>
-            <li>
-              <ActiveLink to='/blogs'>Blogs</ActiveLink>
-            </li>
+          <ul className='px-1 flex gap-3 font-semibold'>
+            <ActiveLink to='/'>Home</ActiveLink>
+
+            <ActiveLink to='/blogs'>Blogs</ActiveLink>
           </ul>
         </div>
         <div className='navbar-end'>
