@@ -12,7 +12,7 @@ const SocialLogin = ({from}) => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from,{replace:true})
+        navigate(from || "/",{replace:true})
       })
       .catch((err) => {
         console.log(err);
@@ -23,7 +23,7 @@ const SocialLogin = ({from}) => {
     githubSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from,{replace:true})
+        navigate(from || "/",{replace:true})
       })
       .catch((err) => {
         console.log(err);

@@ -5,7 +5,6 @@ import { AuthContext } from "../../providers/AuthProviders";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  //console.log(user?.photoURL);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
