@@ -23,6 +23,7 @@ const RecipeBanner = ({ chef }) => {
         <div className='hero-content text-center text-neutral-content'>
           <div className=' flex flex-col w-full items-center gap-5 lg:flex-row '>
             <div className='grid w-1/2 flex-grow card rounded-box place-items-center'>
+              <img className=" h-56 aspect-video rounded-2xl" src={image} alt="" />
               <h1 className='mb-5 text-5xl font-bold'>{chef_name}</h1>
               <p className='mb-5 '>{short_bio}</p>
             </div>
