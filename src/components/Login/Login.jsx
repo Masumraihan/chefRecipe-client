@@ -2,23 +2,40 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProviders";
+import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn, resetPassword } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
+
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+    if (!email) {
+      toast.error("please enter your email");
+      e.target.parentNode.parentNode.parentNode.email.focus();
+      return;
+    }
+    resetPassword(email)
+      .then(() => {
+        toast.success("please check your email");
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from, {replace:true});
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err);
@@ -58,8 +75,8 @@ const Login = () => {
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <label className='label'>
-                <a href='#' className='label-text-alt link link-hover'>
+              <label onClick={handleResetPassword} className='label'>
+                <a className='label-text-alt link link-hover'>
                   Forgot password?
                 </a>
               </label>
@@ -76,6 +93,7 @@ const Login = () => {
               </Link>
             </p>
           </form>
+          <Toaster />
         </div>
       </div>
     </div>

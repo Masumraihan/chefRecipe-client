@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHeart, FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const RecipeBanner = ({ chef }) => {
   const {
