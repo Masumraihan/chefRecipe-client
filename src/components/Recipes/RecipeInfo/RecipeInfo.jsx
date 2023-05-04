@@ -1,6 +1,4 @@
 import React from "react";
-import { Rating } from "@smastrom/react-rating";
-import "@smastrom/react-rating/style.css";
 import SingleRecipe from "./SingleRecipe";
 
 const RecipeInfo = ({ recipeData }) => {

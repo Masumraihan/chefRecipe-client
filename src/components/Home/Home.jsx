@@ -9,6 +9,8 @@ const Home = () => {
     return (
         <div className='container mx-auto'>
             <Chefs/>
+
+             {/*extra sections*/}
             <Feedback/>
             <Review/>
         </div>
