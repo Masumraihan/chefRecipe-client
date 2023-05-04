@@ -15,12 +15,12 @@ const SingleChef = ({ chefInfo }) => {
   return (
     <>
       <div className='card lg:card-side bg-base-100 shadow-xl mx-5 md:mx-0'>
-        <figure className='lg:w-1/2'>
+        <figure className='w-full lg:w-1/2'>
           <LazyLoad>
             <img
               src={image}
               alt={chef_name}
-              className='rounded-md w-full h-72'
+              className='rounded-md w-full aspect-video lg:h-72'
             />
           </LazyLoad>
         </figure>
