@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [bannerData, setBannerData] = useState([]);
@@ -40,7 +41,9 @@ const Header = () => {
                 <div className='max-w-md'>
                   <h1 className='mb-5 text-5xl font-bold'>{info.name}</h1>
                   <p className='mb-5'>{info.description}</p>
-                  <button className='btn btn-primary'>Get Started</button>
+                  <Link to="/">
+                    <button className='btn btn-primary'>Get Eat</button>
+                  </Link>
                 </div>
               </div>
             </div>
