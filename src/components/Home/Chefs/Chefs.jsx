@@ -17,7 +17,7 @@ const Chefs = () => {
       const { data } = await axios.get(
         "https://chef-recipe-assignment-server-masumraihan.vercel.app/chefs"
       );
-      setChefsData(data.slice(0, 4));
+      setChefsData(data.slice(0, 6));
       setAllChefs(data);
     };
     loadChefsData();
@@ -30,7 +30,7 @@ const Chefs = () => {
   return (
     <div className='py-14'>
       <h1 className='text-4xl font-bold text-center pb-10'>Our Best Chefs</h1>
-      <div className='grid md:grid-cols-2 gap-5'>
+      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {chefsData.map((chefInfo) => (
           <SingleChef key={chefInfo.id} chefInfo={chefInfo} />
         ))}

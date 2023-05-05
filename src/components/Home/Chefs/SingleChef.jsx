@@ -14,8 +14,8 @@ const SingleChef = ({ chefInfo }) => {
   } = chefInfo;
   return (
     <>
-      <div className='card lg:card-side bg-base-100 shadow-xl mx-5 md:mx-0'>
-        <figure className='w-full lg:w-1/2'>
+      <div className='card bg-base-100 shadow-xl mx-5 md:mx-0'>
+        <figure className='w-full'>
           <LazyLoad>
             <img
               src={image}
@@ -26,7 +26,9 @@ const SingleChef = ({ chefInfo }) => {
         </figure>
         <div className='card-body justify-between'>
           <div className='flex flex-col gap-2'>
-            <h2 className='card-title'>{chef_name}</h2>
+            <div className="border-b-2 pb-2">
+              <h2 className='card-title'>{chef_name}</h2>
+            </div>
             <p>Experience: {years_of_experience} year</p>
             <p>Recipe: {number_of_recipes} items </p>
           </div>
