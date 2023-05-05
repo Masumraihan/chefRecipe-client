@@ -1,20 +1,19 @@
 import { Rating } from "@smastrom/react-rating";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { addToLocal } from "../../../utils/LocalDb";
 
 const SingleRecipe = ({ recipe }) => {
   const [isFold, setIsFold] = useState(true);
-  const [isDisable,setIsDisable] = useState(false)
+  const [isDisable, setIsDisable] = useState(false);
 
   const handleFavorite = (id) => {
-    addToLocal(id)
-    toast.success("Item Added Successfully")
-    setIsDisable(true)
-  }
+    addToLocal(id);
+    setIsDisable(true);
+  };
 
-  const { recipe_name, cooking_method, ingredients, rating,id } = recipe;
-  //console.log(recipe);
+  const { recipe_name, cooking_method, ingredients, rating, id } = recipe;
+  console.log(recipe);
 
   return (
     <div className='card mt-5 bg-base-100 shadow-xl'>
@@ -33,7 +32,14 @@ const SingleRecipe = ({ recipe }) => {
               </button>
             )}
           </p>
-          <Rating value={rating} style={{ maxWidth: 120,marginBottom:15 }} readOnly />
+          <div className="mb-5 flex gap-2">
+            <Rating
+              value={rating}
+              style={{ maxWidth: 125 }}
+              readOnly
+            />
+            <span className="text-xl font-semibold">{rating}</span>
+          </div>
           <ul>
             {ingredients.map((item, i) => (
               <li key={i}>{item}</li>
@@ -41,7 +47,13 @@ const SingleRecipe = ({ recipe }) => {
           </ul>
         </div>
         <div className='card-actions absolute bottom-5 right-5'>
-          <button onClick={()=>handleFavorite(id)} disabled={isDisable} className='btn btn-primary'>Favorite</button>
+          <button
+            onClick={() => handleFavorite(id)}
+            disabled={isDisable}
+            className='btn btn-primary'
+          >
+            Favorite
+          </button>
         </div>
       </div>
     </div>

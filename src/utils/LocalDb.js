@@ -5,13 +5,16 @@ const addToLocal = (id) => {
   let favoriteRecipes = [];
   if (!storedRecipes) {
     favoriteRecipes.push(id);
+    toast.success("Your recipe added Successfully");
   } else {
     const isStored = storedRecipes.find((item) => item === id);
     if (isStored) {
-      toast("already added");
+      toast.error("This recipe already added your favorite list");
+      return;
     } else {
       favoriteRecipes.push(id);
       favoriteRecipes = [...storedRecipes,id];
+      toast.success("Your recipe added Successfully");
     }
   }
   localStorage.setItem("recipes", JSON.stringify(favoriteRecipes));
