@@ -1,17 +1,20 @@
 import { Rating } from "@smastrom/react-rating";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import { addToLocal } from "../../../utils/LocalDb";
 
 const SingleRecipe = ({ recipe }) => {
   const [isFold, setIsFold] = useState(true);
   const [isDisable,setIsDisable] = useState(false)
 
-  const handleFavorite = () => {
+  const handleFavorite = (id) => {
+    addToLocal(id)
     toast.success("Item Added Successfully")
     setIsDisable(true)
   }
 
-  const { recipe_name, cooking_method, ingredients, rating } = recipe;
+  const { recipe_name, cooking_method, ingredients, rating,id } = recipe;
+  //console.log(recipe);
 
   return (
     <div className='card mt-5 bg-base-100 shadow-xl'>
@@ -38,7 +41,7 @@ const SingleRecipe = ({ recipe }) => {
           </ul>
         </div>
         <div className='card-actions absolute bottom-5 right-5'>
-          <button onClick={handleFavorite} disabled={isDisable} className='btn btn-primary'>Favorite</button>
+          <button onClick={()=>handleFavorite(id)} disabled={isDisable} className='btn btn-primary'>Favorite</button>
         </div>
       </div>
     </div>
