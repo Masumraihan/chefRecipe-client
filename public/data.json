@@ -1,0 +1,35 @@
+[
+  {
+    "picture": "https://media.istockphoto.com/id/1129805857/photo/boy-making-robot-for-school-project.jpg?s=1024x1024&w=is&k=20&c=kq-9zOw5tNCpR1XbB327jUogyJtUbHKjGGLv1VgepuY=",
+    "name": "Robot Buddy",
+    "sellerName": "ABC Toys",
+    "sellerEmail": "abc.toys@example.com",
+    "category": "Engineer",
+    "price": 24.99,
+    "rating": 4.5,
+    "availableQuantity": 10,
+    "detailDescription": "The Robot Buddy is an interactive robot toy designed to engage children in learning and play. It features voice recognition, programmable movements, and educational activities that help develop math skills. With its colorful design and friendly personality, Robot Buddy is a perfect companion for young learners."
+  },
+  {
+    "picture": "https://media.istockphoto.com/id/1095815742/photo/little-boy-playing-mathematics-wooden-toy-at-nursery.jpg?s=1024x1024&w=is&k=20&c=o5uuCS_5qeSMel1h8CBMA2mLgL1FTwKeNlS6Qa30e9A=",
+    "name": "Building Blocks Set",
+    "sellerName": "123 Educational Toys",
+    "sellerEmail": "123toys@example.com",
+    "category": "Math",
+    "price": 19.99,
+    "rating": 4.7,
+    "availableQuantity": 15,
+    "detailDescription": "The Building Blocks Set is a versatile toy that promotes creativity, problem-solving, and math skills. The set includes various shapes and colors, allowing children to build and explore their architectural ideas. With these building blocks, kids can learn about geometry, spatial awareness, and logical thinking while having fun."
+  },
+  {
+    "picture": "https://media.istockphoto.com/id/813895790/photo/portrait-of-curious-little-scientist.jpg?s=1024x1024&w=is&k=20&c=Sr7HTPMzyGpr7rsMtCPhi-3Z6uFHTY-FUcGcmHzbnYc=",
+    "name": "Remote Control Car",
+    "sellerName": "Fun Toys Inc.",
+    "sellerEmail": "fun.toys@example.com",
+    "category": "Science",
+    "price": 34.99,
+    "rating": 4.0,
+    "availableQuantity": 8,
+    "detailDescription": "The Remote Control Car is a high-speed toy that introduces children to the principles of physics and engineering. It features responsive controls, allowing kids to maneuver the car with precision. With its sleek design and durable construction, this remote control car provides endless hours of entertainment and learning."
+  }
+]
