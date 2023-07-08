@@ -1,5 +1,7 @@
 live site: https://food-network-17e81.web.app/
 
+server code: https://github.com/Masumraihan/chefRecipe-server
+
 * This website is dedicated to chef recipes, providing a wide range of culinary inspirations.
 * Users have the option to choose their favorite chef from a curated list of talented chefs.
 * Access to view chef recipes is restricted to registered and logged-in users only.
